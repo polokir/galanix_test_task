@@ -2,24 +2,23 @@ const modal = document.querySelector(".modal");
 const images = document.querySelector(".gallery");
 const date = document.querySelector(".date");
 
+
+//--------------КОЛИЧЕСТВО КАРТИНОК------------------------------------------
 const counter = document.querySelector(".images-counter");
-
 counter.innerText = `Количество картинок на странице: ${images.children.length}`
-const starttDate = new Date();
-date.innerText = `${starttDate.toLocaleDateString('en-GB')}   ${starttDate.getHours()} : ${starttDate.getMinutes()}`;
+//---------------------------------------------------------------------------
 
-setInterval(()=>{
+
+//------------ВРЕМЯ-----------------------------------------------------------
+function updateTime (){
     const currentDate = new Date();
     date.innerText = `${currentDate.toLocaleDateString('en-GB')}   ${currentDate.getHours()} : ${currentDate.getMinutes()}`;
-    
-},1000)
+}
+setInterval(updateTime,1000)
+//----------------------------------------------------------------------------
 
 
-
-
-
-
-
+//----------------------ГАЛЕРЕЯ------------------------------------------------
 images.addEventListener("click", (e) => {
     
     if(e.target.nodeName ==="IMG"){
@@ -33,4 +32,4 @@ images.addEventListener("click", (e) => {
 modal.addEventListener('click',(e)=>{
     modal.classList.toggle("is-hidden")
 })
-
+//-----------------------------------------------------------------------------
